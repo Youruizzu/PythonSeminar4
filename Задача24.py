@@ -10,3 +10,21 @@
 # Напишите программу для нахождения максимального числа ягод, 
 # которое может собрать за один заход собирающий модуль, 
 # находясь перед некоторым кустом заданной во входном файле грядки.
+import random
+
+size = int(input("Введите размер массива: "))
+bushes = []
+summ = 0
+result = 0
+
+for i in range(0, size):
+    bushes.append(random.randint(1, 99))
+
+for i in range(0, size):
+    if(i+1 == size):
+        summ = bushes[i-1] + bushes[i] + bushes[0]
+    else: summ = bushes[i-1] + bushes[i] + bushes[i+1]
+    if(summ > result): result = summ
+
+print(*bushes)
+print(f"-------> {result}")
